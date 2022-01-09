@@ -55,38 +55,36 @@ sampling. The rest of the note is layed out as follows:
 </ul>
 <p>The primitive element in any sampling algorithm is the generation of samples from a known probability distribution. So the step-by-step algorithm is described in the following section.</p>
 <h1>Sampling from Given Distribution</h1>
-<p>Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.
-<center></center></p>
+<p>Consider the example of picking random colored cubes from a large bag of them. The probrability distribution of the colors of these cubes is given in the table below. In this setting, sampling is analogous to picking a random cube from said bag so that the probabilities are taken into account.</p>
+<p style="text-align:center;">
 <table>
-<thead>
 <tr>
-<th align="center">C</th>
-<th align="center">Pr(C)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">green</td>
-<td align="center">0.6</td>
+<th style="text-align:center"> C </th>
+<th style="text-align:center"> Pr(C) </th>
 </tr>
 <tr>
-<td align="center">red</td>
-<td align="center">0.1</td>
+<td style="text-align:center"> Green </td>
+<td style="text-align:center"> 0.6 </td>
 </tr>
 <tr>
-<td align="center">blue</td>
-<td align="center">0.3</td>
+<td style="text-align:center"> Red </td>
+<td style="text-align:center"> 0.1 </td>
 </tr>
-</tbody>
+<tr>
+<td style="text-align:center"> Blue </td>
+<td style="text-align:center"> 0.3 </td>
+</tr>
 </table>
-<p></p>
+</p>
 <p>In order to draw a sample from this distribution, we can use a uniform distribution to generate a seed 
 and determine the sample based on that. As shown in the figure below, the unit length segment is 
 partitioned into parts named $l_i$, each having length equal to $p_i$. These $p_i$ s represent the 
 probabilities of the distribution, and are equal to $Pr(C=c_i)$. In other words, we have indexed the 
 values that the random variable $C$ can take and defined the probabilities based on them. Here, we have 
 $c_1 = green$, $c_2 = red$ and $c_3 = blue$.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/Unit_Length_Segment_Partition.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/Unit_Length_Segment_Partition.png" width="auto"/>
+</p>
 <p>We say that the sample drawn has the value $c_i$, if the seed chosen lies in $l_i$. Since we chose the seed from a uniform distribution, it can be shown that the probability of the sample being equal to $c_i$ is $Pr(C=c_i)$.</p>
 <p>Thus, using uniform distributions in this manner, we can generate samples from a given distribution having the same corresponding probabilities.</p>
 <h1>Sampling in Bayes' Nets</h1>
@@ -118,7 +116,9 @@ $$</p>
 <p>Hence, the sampling procedure is consistent with the joint distribution.</p>
 <p>It is apparent that this algorithm is faster than its exact counter-parts. Since we can sample the joint distribution, we can approximate the probability of any event. However, in the case of conditional probabilities, it's more efficient not to consider samples inconsistent with the evidence. This brings us to the idea of rejection sampling.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
 <p>Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of the aforementioned operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose the result of this sampling is $-c$. We continue our sampling algorithm with $B$. Suppose that after this sampling, the result is $-b$. The last variable to sample is $D$ with the result of $+d$. We return the resulting sample $(+a,-c,-b,+d)$.</p>
 <p>After the sampling algorithm has finished, to determine $Pr(query|evidence)$, first, we need to filter out samples inconsistent with our evidence list. We will set the count of samples in this list as our denominator, and the count of samples in this list consistent with our query as our numerator.</p>
@@ -133,7 +133,9 @@ A simple idea is to reject incosistent samples whilst sampling. To achieve this 
 <p>5.  Return $(x_1,...,x_n)$</p>
 <p>This algorithm is also consistent with the conditional probabilities.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
 <p>Based on the sampling algorithm proposed above, we start with the topological sorted variables. At the first step, we sample $A$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. Suppose that after sampling $C$, the result is $+c$. Since $-c$ is one of our evidences, we should reject this sample; which is achieved by returning None and adding no sample to our sample list.</p>
 <p>Otherwise, in case of $-c$ for the sampling result of C, we continue our sampling algorithm with $B$. Suppose that after sampling $B$, the result is $-b$. The last variable to sample is $D$ and since it is an evidence variable, we should repeat the same procedure we performed for $C$. If the result of sampling $D$ is $-d$, we reject this sample and return None; Otherwise, we return the resulting sample $(+a,-c,-b,+d)$.</p>
@@ -167,7 +169,9 @@ $$
 =\prod_{i=1}^{n}Pr(q_i|parents(Q_i)) \prod_{i=1}^{m}Pr(e_i|parents(E_i)) = Pr(q_1,...,q_n,e_1,...,e_m).
 $$</p>
 <p>Take the following Bayes' net as an example.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
 <p>Suppose we want to calculate $Pr(-a, | -c, +d)$. This means that our evidence variables are $C$ and $D$. An example of the sampling procedure is as follows.</p>
 <p>Based on the sampling algorithm proposed above, we start by setting the weight $w$ equal to $1.0$. Then, we sample $A$ from its distribution, since it is the first node in the topological order of the Bayes' net. Thus, $A$ will be sampled from the distribution $Pr(A)$, where $Pr(+a) = 0.7$. Suppose that the result of said operation is $+a$. Next in line could be $C$, since it can be thought of as the next node to be processed. However, $C$ is an evidence node. This means that we should set it to $-c$ and multiply $w$ by $Pr(-c | +a) = 0.9$, leading to $w=0.9$. Next in line is $B$, which is again sampled from the distribution $Pr(B | +a)$ where $Pr(+b | +a) = 0.8$. Suppose that the result of this opreation is $-b$. Now, the only node left to be processed is $D$. Since this node is again an evidence variable, we should set it to $+d$ and multiply $w$ by $Pr(+d | -b, -c) = 0.2$, which is the conditional probability based on the values generated up to this point. This changes $w$ to $0.18$. Since there are no more nodes left, $w = 0.18$ is the weight of the sample $(+a, -b, -c, +d)$.</p>
 <p>By repeating this procedure and calculating a weight for each sample, we will eventually find a collection of weighted samples. Then we could use the calculated weights to approximate the probability in question. This is done by summing the weights of the samples consistent with the query, and dividing by the sum of all weights generated.</p>
@@ -198,9 +202,13 @@ $$</p>
 <p>This updating procedure takes into account both upstream and downstream evidences in the Bayes' net, since each update conditions on every variable. This property fixes the problem of Likelihood Weighting, i.e., only conditioning on upstream variables. Thus, Gibbs sampling has better sampling efficiency (sum of the samples' weights is larger, therefore generating more effective samples), creating more useful data to be used in approximation.</p>
 <p>In practice, the samples $X^{(t)}$ with small $t$ may not accurately represent the desired distribution. Furthermore, they may not be independent of the other samples $X'$ generated with the Gibbs method, because of the arbitrary choice of $X^{(1)}$. This begining of the chain is referred to as the <strong>burn-in period</strong>, and the samples generated here are generally not used as the desired $X$. So, $X$ is usually selected from the $X^{(t)}$ outside this period. However, this creates a time overhead, since the burn-in period could be somewhat large.</p>
 <p>Take the following Bayes' net as an example.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/General_Example_BN.png" width="auto"/>
+</p>
 <p>Suppose we want to calculate $Pr(+a, -b | +c, -d)$. This means that $C$ and $D$ are our evidence variables. An example of the sampling procedure is shown below. Variables set to true are shown in green, variables set to false in red and variables selected for resampling in yellow.</p>
-<p><img alt="drawing" class="center" src="/notes/assets/./Images/Gibbs_Example_Procedure.png" width="auto"/></p>
+<p style="text-align:center;">
+<img alt="drawing" src="/notes/assets/./Images/Gibbs_Example_Procedure.png" width="auto"/>
+</p>
 <p>As it is shown in the figure above, we start from an arbitrary sample that satisfies the evidence values. Often, this arbitrary sample is generated randomly. Then, in each iteration, a non-evidence variable is selected to be resampled. Here, the first variable to be resampled is chosen to be $B$. The distribution used in this sampling, based on the formula stated above, is:
 $$
 Pr(+b|+a, +e, +c, -d)
