@@ -8,7 +8,7 @@ authors:
     position: top
   kind: people
   content:
-  - name: <Alireza Honarvar>
+  - name: Alireza Honarvar
     role: Author
     contact:
     - link: https://github.com/AlirezaTheBruh
@@ -17,7 +17,7 @@ authors:
       icon: fab fa-telegram
     kind: person
     image: https://github.com/AlirezaTheBruh.png
-  - name: <Navid Eslami>
+  - name: Navid Eslami
     role: Author
     contact:
     - link: https://github.com/n3slami
@@ -26,7 +26,7 @@ authors:
       icon: fab fa-telegram
     kind: person
     image: https://github.com/n3slami.png
-  - name: <Ali Najibi>
+  - name: Ali Najibi
     role: Author
     contact:
     - link: https://github.com/anajibi
