@@ -1,0 +1,37 @@
+title: <Inference in Bayesian Networks (Sampling)>
+header:
+  title: <p><inference (sampling)="" bayesian="" in="" networks=""></inference></p>
+  description: <p><fast a.k.a.="" approximate="" bayesian="" in="" inference="" methods=""
+    networks="" sampling=""></fast></p>
+authors:
+  label:
+    position: top
+  content:
+  - name: <Alireza Honarvar>
+    role: Author
+    contact:
+    - link: https://github.com/AlirezaTheBruh
+      icon: fab fa-github
+    - link: https://t.me/FekKonamAlirezaBezarCheckKonam
+      icon: fab fa-telegram
+  - name: <Navid Eslami>
+    role: Author
+    contact:
+    - link: https://github.com/n3slami
+      icon: fab fa-github
+    - link: https://t.me/NavidEsl
+      icon: fab fa-telegram
+  - name: <Ali Najibi>
+    role: Author
+    contact:
+    - link: https://github.com/anajibi
+      icon: fab fa-github
+    - link: https://t.me/alinjibi
+      icon: fab fa-telegram
+comments:
+  label: false
+  kind: comments
+kind: Content
+search:
+  content: true
+  links: false
