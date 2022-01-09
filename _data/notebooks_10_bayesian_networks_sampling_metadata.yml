@@ -1,8 +1,7 @@
-title: <Inference in Bayesian Networks (Sampling)>
+title: Inference in Bayesian Networks (Sampling)
 header:
-  title: <p><inference (sampling)="" bayesian="" in="" networks=""></inference></p>
-  description: <p><fast a.k.a.="" approximate="" bayesian="" in="" inference="" methods=""
-    networks="" sampling=""></fast></p>
+  title: <p>Inference in Bayesian Networks (Sampling)</p>
+  description: <p>Fast Approximate Inference Methods in Bayesian Networks A.K.A. Sampling</p>
 authors:
   label:
     position: top

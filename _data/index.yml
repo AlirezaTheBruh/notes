@@ -83,8 +83,8 @@ notebooks:
     metadata: notebooks/10_bayesian_networks_sampling/metadata.yml
     text: Baysian Networks - Sampling
     link: /notes/notebooks/10_bayesian_networks_sampling/
-    description: <p><fast a.k.a.="" approximate="" bayesian="" in="" inference=""
-      methods="" networks="" sampling=""></fast></p>
+    description: <p>Fast Approximate Inference Methods in Bayesian Networks A.K.A.
+      Sampling</p>
   - notebook: notebooks/11_temporal_probability_models/index1.ipynb
     kind: S2021, LN, Notebook
     metadata: notebooks/11_temporal_probability_models/metadata.yml
