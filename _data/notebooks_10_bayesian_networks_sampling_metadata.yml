@@ -6,6 +6,7 @@ header:
 authors:
   label:
     position: top
+  kind: people
   content:
   - name: <Alireza Honarvar>
     role: Author
@@ -14,6 +15,8 @@ authors:
       icon: fab fa-github
     - link: https://t.me/FekKonamAlirezaBezarCheckKonam
       icon: fab fa-telegram
+    kind: person
+    image: https://github.com/AlirezaTheBruh.png
   - name: <Navid Eslami>
     role: Author
     contact:
@@ -21,6 +24,8 @@ authors:
       icon: fab fa-github
     - link: https://t.me/NavidEsl
       icon: fab fa-telegram
+    kind: person
+    image: https://github.com/n3slami.png
   - name: <Ali Najibi>
     role: Author
     contact:
@@ -28,6 +33,8 @@ authors:
       icon: fab fa-github
     - link: https://t.me/alinjibi
       icon: fab fa-telegram
+    kind: person
+    image: https://github.com/anajibi.png
 comments:
   label: false
   kind: comments
